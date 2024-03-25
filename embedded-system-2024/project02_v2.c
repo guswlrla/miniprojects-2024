@@ -26,6 +26,7 @@ typedef struct BOOK {
     char author[30];
     char publisher[30];
     char price[30];
+    int borrow;
     struct BOOK* next;
 }book;
 
@@ -157,113 +158,26 @@ void searchMenu(book* head)
     book*curr = head->next;
     while (curr != NULL) {
         if (strcmp(curr->title, title) == 0) {
-            printf("%s이(가) 존재합니다.\n", title);
+            printf("도서를 찾았습니다!!\n", title);
+            printf("제 목 : %s | 저 자 : %s | 출판사 : %s | 가 격 : %s\n", 
+                    curr->title, curr->author, curr->publisher, curr->price, curr->borrow ? "대여 가능" : "대여 중");
+
+            if(curr->borrow) {
+                printf("대여하시겠습니까? (Y/N) : ");
+                char answer;
+                scanf("%c", &answer);
+                if(answer == 'Y' || answer == 'y'); {
+                    curr->borrow = 0;
+                    printf("도서가 대여되었습니다.\n");
+                }
+                printf("대여를 취소합니다.\n");
+                
+            printf("도서가 이미 대여 중입니다.\n");
+            
             return;
+            }
         }
         curr = curr->next;
     }
     printf("도서가 존재하지 않습니다.\n");
 }
-
-/*
-1 #include <stdio.h>
-  2 #include <stdlib.h>
-  3
-  4 typedef struct NODE
-  5 {
-  6   int data;
-  7   struct NODE* next;
-  8 }node;
-  9
- 10 headNode* creatHeadNode(void)
- 11 {
- 12   node* newNode = (node*)malloc(sizeof(node));
- 13   newNode->next = NULL;
- 14
- 15 }
- 16
- 17 void pre_addNode(node* pnode, int _data) // 전위삽입
- 18 {
- 19   node* newNode = (node*)malloc(sizeof(node)); // 노드생성
- 20   newNode-> data = _data;
- 21   newNode->next = pnode->next;
- 22   pnode->next = newNode;
- 23 }
- 24
- 25 void post_addNode(node* pnode, int _data) // 후위삽입
- 26 {
- 27   node* newNode = (node*)malloc(sizeof(node));
- 28   newNode-> data = _data; // 새로운 노드에 데이터 값 넣음
- 29   newNode->next = NULL; // 새로운 노드의 next를 NULL로 설정
- 30
- 31   if(pnode->next == NULL)// 헤더의 next가 NULL일때, 가리키지 않는 상태(첫번째 노드를 연결)
- 32   {
- 33     pnode->next = newNode; // 새로운 노드 생성
- 34   }
- 35   else  // 첫번째 노드 연결 이후
- 36   {
- 37     node* curr = pnode->next; //curr은 첫번째 노드
- 38     while(curr->next != NULL) // 첫번째 노드가 다른 노드를 가리키고 있을 때
- 39     {
- 40       curr = curr->next; // curr next를 curr에 대입, 다음 노드를 curr로 바꿈
- 41     }
- 42     curr->next = newNode; // 새로운 노드에 연결
- 43   }
- 44 }
- 45
- 46 void showNode(node* pnode) // 출력함수
- 47 {
- 48   node* curr = pnode->next; // curr가 현재 노드를 가리킴
- 49   while(curr != NULL) // 값이 다 출력되도록
- 50   {
- 51     printf("%d", curr->data); // 현재 데이터 출력
- 52     curr = curr->next; // curr가 다음 노드를 가리키도록 함
- 53   }
- 54 }
- 55
- 56 void allFreeNode(node* pnode) // 전체 메모리 해제
- 57 {
- 58   node* curr = pnode->next;
- 59   while(curr != NULL)
- 60   {
- 61     free(curr);
- 62     curr = curr->next;
- 63   }
- 64 }
- 65
- 66 void main()
- 67 {
- 68   node* head = (node*)malloc(sizeof(node)); // 헤드 노드 생성
- 69   head->next = NULL;  // 헤드 노드의 next 포인터를  NULL로 초기화
- 70
- 71   head->data = 0;
- 72
- 73   pre_addNode(head, 10); // 첫번째 노드로 삽입
- 74   pre_addNode(head, 20);
- 75   pre_addNode(head, 30);
- 76   pre_addNode(head, 40);
- 77   pre_addNode(head, 50);
- 78
- 79   node* curr = head->next; // curr을 첫번째 노드로 설정
- 80   while(curr != NULL) // curr이 NULL이 아닐 때까지
- 81   {
- 82     printf("%d\n", curr->data);
- 83     curr = curr->next; // curr을 다음 노드로 이동
- 84   }
- 85
- 86   // 노드 삭제
- 87   curr = head->next;
- 88   while(curr != NULL)
- 89   {
- 90     head->next = curr->next;
- 91     free(curr); // 노드 메모리 해제
- 92     curr = head->next;
- 93   }
- 94   printf("%d, %d\n", head->next, curr);
- 95   free(curr);
- 96
- 97   showNode(head); // 출력함수 호출
- 98
- 99   free(head);
-100 }
-*/

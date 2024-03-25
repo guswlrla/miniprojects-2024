@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// ì±… ì •ë³´ë¥¼ ë‹´ëŠ” êµ¬ì¡°ì²´
+// Ã¥ Á¤º¸¸¦ ´ã´Â ±¸Á¶Ã¼
 typedef struct Book {
     char title[100];
     char author[100];
@@ -11,55 +11,55 @@ typedef struct Book {
     struct Book *next;
 } Book;
 
-// ì—°ê²° ë¦¬ìŠ¤íŠ¸ë¥¼ ê´€ë¦¬í•˜ëŠ” êµ¬ì¡°ì²´
+// ¿¬°á ¸®½ºÆ®¸¦ °ü¸®ÇÏ´Â ±¸Á¶Ã¼
 typedef struct Library {
     Book *head;
 } Library;
 
-// ë„ì„œ ì¶”ê°€ í•¨ìˆ˜
+// µµ¼­ Ãß°¡ ÇÔ¼ö
 void addBook(Library *lib) {
     Book *newBook = (Book *)malloc(sizeof(Book));
     if (newBook == NULL) {
-        printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì˜¤ë¥˜\n");
+        printf("¸Ş¸ğ¸® ÇÒ´ç ¿À·ù\n");
         return;
     }
 
-    printf("ë„ì„œ ì œëª©: ");
+    printf("µµ¼­ Á¦¸ñ: ");
     scanf("%s", newBook->title);
-    printf("ì €ì: ");
+    printf("ÀúÀÚ: ");
     scanf("%s", newBook->author);
-    printf("ì¶œíŒì‚¬: ");
+    printf("ÃâÆÇ»ç: ");
     scanf("%s", newBook->publisher);
-    printf("ê°€ê²©: ");
+    printf("°¡°İ: ");
     scanf("%f", &(newBook->price));
 
     newBook->next = lib->head;
     lib->head = newBook;
 
-    printf("ë„ì„œê°€ ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+    printf("µµ¼­°¡ µî·ÏµÇ¾ú½À´Ï´Ù.\n");
 }
 
-// ë„ì„œ ê²€ìƒ‰ í•¨ìˆ˜
+// µµ¼­ °Ë»ö ÇÔ¼ö
 void searchBook(Library *lib) {
     char title[100];
-    printf("ê²€ìƒ‰í•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("°Ë»öÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
     scanf("%s", title);
 
     Book *current = lib->head;
     while (current != NULL) {
         if (strcmp(current->title, title) == 0) {
-            printf("ë„ì„œê°€ ì¡´ì¬í•©ë‹ˆë‹¤.\n");
+            printf("µµ¼­°¡ Á¸ÀçÇÕ´Ï´Ù.\n");
             return;
         }
         current = current->next;
     }
-    printf("ë„ì„œê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
+    printf("µµ¼­°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
 }
 
-// ë„ì„œ ì‚­ì œ í•¨ìˆ˜
+// µµ¼­ »èÁ¦ ÇÔ¼ö
 void removeBook(Library *lib) {
     char title[100];
-    printf("ì‚­ì œí•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+    printf("»èÁ¦ÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
     scanf("%s", title);
 
     Book *current = lib->head;
@@ -73,39 +73,39 @@ void removeBook(Library *lib) {
                 prev->next = current->next;
             }
             free(current);
-            printf("ë„ì„œê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
+            printf("µµ¼­°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n");
             return;
         }
         prev = current;
         current = current->next;
     }
-    printf("ì‚­ì œí•  ë„ì„œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
+    printf("»èÁ¦ÇÒ µµ¼­¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.\n");
 }
 
-// ë„ì„œ ì¶œë ¥ í•¨ìˆ˜
+// µµ¼­ Ãâ·Â ÇÔ¼ö
 void printBooks(Library *lib) {
     Book *current = lib->head;
 
     if (current == NULL) {
-        printf("ë“±ë¡ëœ ë„ì„œê°€ ì—†ìŠµë‹ˆë‹¤.\n");
+        printf("µî·ÏµÈ µµ¼­°¡ ¾ø½À´Ï´Ù.\n");
         return;
     }
 
-    printf("ë„ì„œ ëª©ë¡:\n");
+    printf("µµ¼­ ¸ñ·Ï:\n");
     while (current != NULL) {
-        printf("ì œëª©: %s | ì €ì: %s | ì¶œíŒì‚¬: %s | ê°€ê²©: %.2f\n", current->title, current->author, current->publisher, current->price);
+        printf("Á¦¸ñ: %s | ÀúÀÚ: %s | ÃâÆÇ»ç: %s | °¡°İ: %.2f\n", current->title, current->author, current->publisher, current->price);
         current = current->next;
     }
 }
 
-// ë©”ë‰´ ì¶œë ¥ í•¨ìˆ˜
+// ¸Ş´º Ãâ·Â ÇÔ¼ö
 void printMenu() {
-    printf("\n------ë©”ë‰´------\n");
-    printf("1. ë„ì„œ êµ¬ì…(ë“±ë¡)\n");
-    printf("2. ë„ì„œ ê²€ìƒ‰\n");
-    printf("3. ë„ì„œ ì‚­ì œ\n");
-    printf("4. ë„ì„œ ì¶œë ¥\n");
-    printf("0. ì¢…ë£Œ\n");
+    printf("\n------¸Ş´º------\n");
+    printf("1. µµ¼­ ±¸ÀÔ(µî·Ï)\n");
+    printf("2. µµ¼­ °Ë»ö\n");
+    printf("3. µµ¼­ »èÁ¦\n");
+    printf("4. µµ¼­ Ãâ·Â\n");
+    printf("0. Á¾·á\n");
 }
 
 int main() {
@@ -115,7 +115,7 @@ int main() {
 
     do {
         printMenu();
-        printf("ì„ íƒ: ");
+        printf("¼±ÅÃ: ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -132,10 +132,10 @@ int main() {
                 printBooks(&lib);
                 break;
             case 0:
-                printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
+                printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
                 break;
             default:
-                printf("ì˜¬ë°”ë¥¸ ë©”ë‰´ ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n");
+                printf("¿Ã¹Ù¸¥ ¸Ş´º ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
         }
     } while (choice != 0);
 
