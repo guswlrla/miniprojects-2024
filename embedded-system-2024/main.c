@@ -6,19 +6,19 @@
 void main()
 {
     int menu_num;
-    head = (book*)malloc(sizeof(book));
+    book* head = (book*)malloc(sizeof(book));
     head->next = NULL;
 
     while(1)
     {
-        printf("******ë„ì„œê´€ë¦¬ í”„ë¡œê·¸ëž¨******\n");
-        printf("1. ë„ì„œ êµ¬ìž…(ë“±ë¡)\n");
-        printf("2. ë„ì„œ ê²€ìƒ‰\n");
-        printf("3. ë„ì„œ ì‚­ì œ\n");
-        printf("4. ë„ì„œ ì¶œë ¥\n");
-        printf("0. ì¢…ë£Œ\n\n");
+        printf("******µµ¼­°ü¸® ÇÁ·Î±×·¥******\n");
+        printf("1. µµ¼­ ±¸ÀÔ(µî·Ï)\n");
+        printf("2. µµ¼­ °Ë»ö\n");
+        printf("3. µµ¼­ »èÁ¦\n");
+        printf("4. µµ¼­ Ãâ·Â\n");
+        printf("0. Á¾·á\n\n");
 
-        printf("ë©”ë‰´ë¥¼ ìž…ë ¥í•˜ì„¸ìš”. > ");
+        printf("¸Þ´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä. > ");
         scanf("%d", &menu_num);
 
         if(menu_num == 1) {
@@ -35,13 +35,19 @@ void main()
         }
         else if(menu_num == 0) {
             printf("\n");
-            printf("í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
+            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
             break;
         }
         else {
-            printf("ì˜¬ë°”ë¥¸ ìˆ«ìžë¥¼ ìž…ë ¥í•˜ì„¸ìš”.\n");
+            printf("¿Ã¹Ù¸¥ ¼ýÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
             continue;
         }
         getchar();
+    }
+    book* curr = head;
+    while (curr != NULL) {
+        book* temp = curr;
+        curr = curr->next;
+        free(temp);
     }
 }

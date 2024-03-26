@@ -10,10 +10,10 @@ typedef struct BOOK {
     struct BOOK* next;
 }book;
 
-void post_addMenu(book* head);
-void printMenu(book* head);
-void deleteMenu(book* head);
-void searchMenu(book* head);
-void rentMenu(book* head);
+void post_addMenu(book*);
+void printMenu(book*);
+void deleteMenu(book*);
+void searchMenu(book*);
+void rentMenu(book*);
 
 #endif
