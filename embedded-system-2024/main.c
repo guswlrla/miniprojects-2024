@@ -3,7 +3,7 @@
 #include <string.h>
 #include "book.h"
 
-void main(book* head)
+void main()
 {
     int menu_num;
     head = (book*)malloc(sizeof(book));
