@@ -1,57 +1,40 @@
-/*
-- µÎ¹øÂ° project. ¿¬°á¸®½ºÆ® ÀÚ·á±¸Á¶·Î µµ¼­°ü¸® ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
-v1 ->
-------¸Ş´º------
-1. µµ¼­ ±¸ÀÔ(µî·Ï)
-2. µµ¼­ °Ë»ö - °Ë»öÇÑ µµ¼­ÀÇ À¯¹«¸¸ Ãâ·ÂÇÑ´Ù.
-3. µµ¼­ »èÁ¦
-4. µµ¼­ Ãâ·Â
-0. Á¾·á
-
-v2 -> 
-------¸Ş´º------
-1. µµ¼­ ±¸ÀÔ(µî·Ï)
-2. µµ¼­ °Ë»ö - °Ë»ö ÈÄ ´ë¿©ÀÇ ±â´ÉÀ» ±¸ÇöÇÑ´Ù.
-3. µµ¼­ »èÁ¦
-4. µµ¼­ Ãâ·Â
-0. Á¾·á
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+ 
 typedef struct BOOK {
     char title[30];
     char author[30];
     char publisher[30];
-    char price[30];
+    int price;
     struct BOOK* next;
 }book;
-
+ 
 book* head = NULL;
-
+ 
 void post_addMenu(book*);
 void printMenu(book*);
 void deleteMenu(book*);
 void searchMenu(book*);
-
+ 
 void main()
 {
     int menu_num;
-
+    head = (book*)malloc(sizeof(book));
+    head->next = NULL;
+ 
     while(1)
     {
-        printf("******µµ¼­°ü¸® ÇÁ·Î±×·¥******\n");
-        printf("1. µµ¼­ ±¸ÀÔ(µî·Ï)\n");
-        printf("2. µµ¼­ °Ë»ö\n");
-        printf("3. µµ¼­ »èÁ¦\n");
-        printf("4. µµ¼­ Ãâ·Â\n");
-        printf("0. Á¾·á\n");
-
-        printf("¸Ş´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä. > ");
+        printf("******ë„ì„œê´€ë¦¬ í”„ë¡œê·¸ë¨******\n");
+        printf("1. ë„ì„œ êµ¬ì…(ë“±ë¡)\n");
+        printf("2. ë„ì„œ ê²€ìƒ‰\n");
+        printf("3. ë„ì„œ ì‚­ì œ\n");
+        printf("4. ë„ì„œ ì¶œë ¥\n");
+        printf("0. ì¢…ë£Œ\n\n");
+ 
+        printf("ë©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš”. > ");
         scanf("%d", &menu_num);
-
+ 
         if(menu_num == 1) {
             post_addMenu(head);
         }
@@ -65,66 +48,71 @@ void main()
             printMenu(head);
         }
         else if(menu_num == 0) {
-            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+            printf("\n");
+            printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
             break;
         }
         else {
-            printf("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
+            printf("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n");
             continue;
-        }       
+        }
+        getchar();
     }
 }
-
+ 
 void post_addMenu(book* head)
 {
     char title[30];
     char author[30];
     char publisher[30];
-    char price[30];
+    int price;
 
-    printf("µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("\n");
+    printf("ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
-    printf("µµ¼­ ÀúÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ë„ì„œ ì €ìë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", author);
-    printf("µµ¼­ ÃâÆÇ»ç¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ë„ì„œ ì¶œíŒì‚¬ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", publisher);
-    printf("µµ¼­ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
-    scanf("%d", price);
+    printf("ë„ì„œ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
+    scanf("%d", &price);
     printf("\n");
 
-    printf("%sÀ»(¸¦) ¼º°øÀûÀ¸·Î µî·ÏÇÏ¿´½À´Ï´Ù!!\n\n", title);
-    
+    printf("%sì„(ë¥¼) ì„±ê³µì ìœ¼ë¡œ ë“±ë¡í•˜ì˜€ìŠµë‹ˆë‹¤!!\n\n", title);
+
     book* newBook = (book*)malloc(sizeof(book));
     strcpy(newBook->title, title);
     strcpy(newBook->author, author);
     strcpy(newBook->publisher, publisher);
-    strcpy(newBook->price, price);
+    newBook->price = price;
 
     newBook->next = NULL;
-    if(head->next == NULL) { // Çì´õÀÇ next°¡ NULLÀÏ¶§, °¡¸®Å°Áö ¾Ê´Â »óÅÂ(Ã¹¹øÂ° ³ëµå¸¦ ¿¬°á)
-        head->next = newBook; // »õ·Î¿î ³ëµå »ı¼º
+    if(head->next == NULL) { 
+    head->next = newBook; 
     }
-    else { // Ã¹¹øÂ° ³ëµå ¿¬°á ÀÌÈÄ
-        book* curr = head->next; //currÀº Ã¹¹øÂ° ³ëµå
-        while(curr->next != NULL) { // Ã¹¹øÂ° ³ëµå°¡ ´Ù¸¥ ³ëµå¸¦ °¡¸®Å°°í ÀÖÀ» ¶§
-            curr = curr->next; // curr next¸¦ curr¿¡ ´ëÀÔ, ´ÙÀ½ ³ëµå¸¦ curr·Î ¹Ù²Ş
+    else { 
+        book* curr = head->next; 
+        while(curr->next != NULL) {
+            curr = curr->next; 
         }
-    curr->next = newBook; // »õ·Î¿î ³ëµå¿¡ ¿¬°á
+        curr->next = newBook;
     }
 }
 
 void printMenu(book* head)
 {
-    book* curr = head->next; // curr°¡ ÇöÀç ³ëµå¸¦ °¡¸®Å´
+    book* curr = head->next;
     if(curr == NULL) {
-        printf("µî·ÏµÈ µµ¼­°¡ ¾ø½À´Ï´Ù.\n");
+        printf("\n");
+        printf("ë“±ë¡ëœ ë„ì„œê°€ ì—†ìŠµë‹ˆë‹¤.\n\n");
         return;
     }
     else {
-        printf("µµ¼­ ¸ñ·Ï : \n");
-        while(curr != NULL) { // °ªÀÌ ´Ù Ãâ·ÂµÇµµ·Ï
-        printf("Á¦ ¸ñ : %s | Àú ÀÚ : %s | ÃâÆÇ»ç : %s | °¡ °İ : %s\n", curr->title, curr->author, curr->publisher, curr->price); // ÇöÀç µ¥ÀÌÅÍ Ãâ·Â
-        curr = curr->next; // curr°¡ ´ÙÀ½ ³ëµå¸¦ °¡¸®Å°µµ·Ï ÇÔ
+        printf("\n");
+        printf("ë„ì„œ ëª©ë¡ : \n");
+        while(curr != NULL) { 
+            printf("ì œ ëª© : %s | ì € ì : %s | ì¶œíŒì‚¬ : %s | ê°€ ê²© : %d\n\n", curr->title, curr->author, curr->publisher, curr->price); // í˜„ì¬ ë°ì´í„° ì¶œë ¥
+            curr = curr->next;
         }
     }
 }
@@ -132,7 +120,8 @@ void printMenu(book* head)
 void deleteMenu(book* head)
 {
     char title[30];
-    printf("»èÁ¦ÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("\n");
+    printf("ì‚­ì œí•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
 
     book* curr = head->next;
@@ -140,130 +129,28 @@ void deleteMenu(book* head)
         if(strcmp(curr->title, title) == 0) {
             head->next = curr->next;
             free(curr);
-            printf("µµ¼­°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n");
+            printf("ë„ì„œê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
             return;
         }
         curr = curr->next;
     }
-    printf("»èÁ¦ÇÒ µµ¼­¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.\n");
+    printf("ì‚­ì œí•  ë„ì„œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!!\n\n");
 }
 
 void searchMenu(book* head)
 {
     char title[30];
-    printf("°Ë»öÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("\n");
+    printf("ê²€ìƒ‰í•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
 
     book*curr = head->next;
     while (curr != NULL) {
         if (strcmp(curr->title, title) == 0) {
-            printf("%sÀÌ(°¡) Á¸ÀçÇÕ´Ï´Ù.\n", title);
-            return;
+        printf("%sì´(ê°€) ì¡´ì¬í•©ë‹ˆë‹¤.\n\n", title);
+        return;
         }
         curr = curr->next;
     }
-    printf("µµ¼­°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n");
+    printf("ë„ì„œê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n\n");
 }
-
-/*
-1 #include <stdio.h>
-  2 #include <stdlib.h>
-  3
-  4 typedef struct NODE
-  5 {
-  6   int data;
-  7   struct NODE* next;
-  8 }node;
-  9
- 10 headNode* creatHeadNode(void)
- 11 {
- 12   node* newNode = (node*)malloc(sizeof(node));
- 13   newNode->next = NULL;
- 14
- 15 }
- 16
- 17 void pre_addNode(node* pnode, int _data) // ÀüÀ§»ğÀÔ
- 18 {
- 19   node* newNode = (node*)malloc(sizeof(node)); // ³ëµå»ı¼º
- 20   newNode-> data = _data;
- 21   newNode->next = pnode->next;
- 22   pnode->next = newNode;
- 23 }
- 24
- 25 void post_addNode(node* pnode, int _data) // ÈÄÀ§»ğÀÔ
- 26 {
- 27   node* newNode = (node*)malloc(sizeof(node));
- 28   newNode-> data = _data; // »õ·Î¿î ³ëµå¿¡ µ¥ÀÌÅÍ °ª ³ÖÀ½
- 29   newNode->next = NULL; // »õ·Î¿î ³ëµåÀÇ next¸¦ NULL·Î ¼³Á¤
- 30
- 31   if(pnode->next == NULL)// Çì´õÀÇ next°¡ NULLÀÏ¶§, °¡¸®Å°Áö ¾Ê´Â »óÅÂ(Ã¹¹øÂ° ³ëµå¸¦ ¿¬°á)
- 32   {
- 33     pnode->next = newNode; // »õ·Î¿î ³ëµå »ı¼º
- 34   }
- 35   else  // Ã¹¹øÂ° ³ëµå ¿¬°á ÀÌÈÄ
- 36   {
- 37     node* curr = pnode->next; //currÀº Ã¹¹øÂ° ³ëµå
- 38     while(curr->next != NULL) // Ã¹¹øÂ° ³ëµå°¡ ´Ù¸¥ ³ëµå¸¦ °¡¸®Å°°í ÀÖÀ» ¶§
- 39     {
- 40       curr = curr->next; // curr next¸¦ curr¿¡ ´ëÀÔ, ´ÙÀ½ ³ëµå¸¦ curr·Î ¹Ù²Ş
- 41     }
- 42     curr->next = newNode; // »õ·Î¿î ³ëµå¿¡ ¿¬°á
- 43   }
- 44 }
- 45
- 46 void showNode(node* pnode) // Ãâ·ÂÇÔ¼ö
- 47 {
- 48   node* curr = pnode->next; // curr°¡ ÇöÀç ³ëµå¸¦ °¡¸®Å´
- 49   while(curr != NULL) // °ªÀÌ ´Ù Ãâ·ÂµÇµµ·Ï
- 50   {
- 51     printf("%d", curr->data); // ÇöÀç µ¥ÀÌÅÍ Ãâ·Â
- 52     curr = curr->next; // curr°¡ ´ÙÀ½ ³ëµå¸¦ °¡¸®Å°µµ·Ï ÇÔ
- 53   }
- 54 }
- 55
- 56 void allFreeNode(node* pnode) // ÀüÃ¼ ¸Ş¸ğ¸® ÇØÁ¦
- 57 {
- 58   node* curr = pnode->next;
- 59   while(curr != NULL)
- 60   {
- 61     free(curr);
- 62     curr = curr->next;
- 63   }
- 64 }
- 65
- 66 void main()
- 67 {
- 68   node* head = (node*)malloc(sizeof(node)); // Çìµå ³ëµå »ı¼º
- 69   head->next = NULL;  // Çìµå ³ëµåÀÇ next Æ÷ÀÎÅÍ¸¦  NULL·Î ÃÊ±âÈ­
- 70
- 71   head->data = 0;
- 72
- 73   pre_addNode(head, 10); // Ã¹¹øÂ° ³ëµå·Î »ğÀÔ
- 74   pre_addNode(head, 20);
- 75   pre_addNode(head, 30);
- 76   pre_addNode(head, 40);
- 77   pre_addNode(head, 50);
- 78
- 79   node* curr = head->next; // currÀ» Ã¹¹øÂ° ³ëµå·Î ¼³Á¤
- 80   while(curr != NULL) // currÀÌ NULLÀÌ ¾Æ´Ò ¶§±îÁö
- 81   {
- 82     printf("%d\n", curr->data);
- 83     curr = curr->next; // currÀ» ´ÙÀ½ ³ëµå·Î ÀÌµ¿
- 84   }
- 85
- 86   // ³ëµå »èÁ¦
- 87   curr = head->next;
- 88   while(curr != NULL)
- 89   {
- 90     head->next = curr->next;
- 91     free(curr); // ³ëµå ¸Ş¸ğ¸® ÇØÁ¦
- 92     curr = head->next;
- 93   }
- 94   printf("%d, %d\n", head->next, curr);
- 95   free(curr);
- 96
- 97   showNode(head); // Ãâ·ÂÇÔ¼ö È£Ãâ
- 98
- 99   free(head);
-100 }
-*/
