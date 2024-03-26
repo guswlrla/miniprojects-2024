@@ -3,7 +3,6 @@
   파일명 : myinfo.txt
 */
 
-
 // File : project01.c
 // date : 2024-03-13
 // Author : 김현지

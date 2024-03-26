@@ -17,11 +17,10 @@ v2 ->
 0. 종료
 */
 
-/*
-  File : project02_v1.c
-  date : 2024-03-27
-  Author : 김현지
-*/
+// File : project02_v1.c
+// date : 2024-03-27
+// Author : 김현지
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
