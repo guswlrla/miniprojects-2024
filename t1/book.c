@@ -3,6 +3,8 @@
 #include <string.h>
 #include "book.h"
 
+// 파일분할 외않되 -> 학교가서 컴파일 ㄱㄱ(전역변수 없는걸로 한거임ㅇㅇ)
+
 void post_addMenu(book* head)
 {
     char title[30];

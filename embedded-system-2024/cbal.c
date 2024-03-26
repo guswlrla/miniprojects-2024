@@ -3,6 +3,9 @@ File : project02_v1.c
 Created : 2024-03-27
 Author : 김현지
 */
+
+// 이거 전역변수 제거한 대여기능 있는 코드임-> 컴파일해보기!!
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -62,6 +65,12 @@ void main()
             continue;
         }
         getchar();
+    }
+    book* curr = head;
+    while (curr != NULL) {
+        book* temp = curr;
+        curr = curr->next;
+        free(temp);
     }
 }
 
