@@ -9,7 +9,7 @@ v2 ->
 */
 
 /*
-File : project02_v1.c
+File : project02_v2.c
 Created : 2024-03-27
 Author : 김현지
 */
