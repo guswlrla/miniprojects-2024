@@ -1,3 +1,8 @@
+/*
+File : book.h
+Created : 2024-03-27
+Author : 김현지
+*/
 #ifndef BOOK_H
 #define BOOK_H
 

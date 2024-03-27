@@ -1,3 +1,8 @@
+/*
+File : main.c
+Created : 2024-03-27
+Author : 김현지
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
