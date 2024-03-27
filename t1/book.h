@@ -1,10 +1,6 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 typedef struct BOOK {
     char title[30];
     char author[30];
