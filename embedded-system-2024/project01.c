@@ -8,7 +8,6 @@ File : project01.c
 Created : 2024-03-13
 Author : 김현지
 */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> // strcmp 함수가 포함된 헤더 파일

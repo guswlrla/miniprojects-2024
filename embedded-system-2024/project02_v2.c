@@ -1,7 +1,7 @@
 /*
 File : project02_v1.c
 Created : 2024-03-27
-Author : ±èÇöÁö
+Author : ê¹€í˜„ì§€
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,14 +32,14 @@ void main()
 
     while(1)
     {
-        printf("******µµ¼­°ü¸® ÇÁ·Î±×·¥******\n");
-        printf("1. µµ¼­ ±¸ÀÔ(µî·Ï)\n");
-        printf("2. µµ¼­ °Ë»ö\n");
-        printf("3. µµ¼­ »èÁ¦\n");
-        printf("4. µµ¼­ Ãâ·Â\n");
-        printf("0. Á¾·á\n\n");
+        printf("******ë„ì„œê´€ë¦¬ í”„ë¡œê·¸ë¨******\n");
+        printf("1. ë„ì„œ êµ¬ì…(ë“±ë¡)\n");
+        printf("2. ë„ì„œ ê²€ìƒ‰\n");
+        printf("3. ë„ì„œ ì‚­ì œ\n");
+        printf("4. ë„ì„œ ì¶œë ¥\n");
+        printf("0. ì¢…ë£Œ\n\n");
 
-        printf("¸Ş´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä. > ");
+        printf("ë©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš”. > ");
         scanf("%d", &menu_num);
 
         if(menu_num == 1) {
@@ -56,11 +56,11 @@ void main()
         }
         else if(menu_num == 0) {
             printf("\n");
-            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+            printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
             break;
         }
         else {
-            printf("¿Ã¹Ù¸¥ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.\n");
+            printf("ì˜¬ë°”ë¥¸ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.\n");
             continue;
         }
         getchar();
@@ -75,17 +75,17 @@ void post_addMenu(book* head)
     int price;
 
     printf("\n");
-    printf("µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
-    printf("µµ¼­ ÀúÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ë„ì„œ ì €ìë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", author);
-    printf("µµ¼­ ÃâÆÇ»ç¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ë„ì„œ ì¶œíŒì‚¬ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", publisher);
-    printf("µµ¼­ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ë„ì„œ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%d", &price);
     printf("\n");
 
-    printf("%sÀ»(¸¦) ¼º°øÀûÀ¸·Î µî·ÏÇÏ¿´½À´Ï´Ù!!\n\n", title);
+    printf("%sì„(ë¥¼) ì„±ê³µì ìœ¼ë¡œ ë“±ë¡í•˜ì˜€ìŠµë‹ˆë‹¤!!\n\n", title);
 
     book* newBook = (book*)malloc(sizeof(book));
     strcpy(newBook->title, title);
@@ -111,15 +111,15 @@ void printMenu(book* head)
     book* curr = head->next;
     if(curr == NULL) {
         printf("\n");
-        printf("µî·ÏµÈ µµ¼­°¡ ¾ø½À´Ï´Ù.\n\n");
+        printf("ë“±ë¡ëœ ë„ì„œê°€ ì—†ìŠµë‹ˆë‹¤.\n\n");
         return;
     }
     else {
         printf("\n");
-        printf("µµ¼­ ¸ñ·Ï : \n");
+        printf("ë„ì„œ ëª©ë¡ : \n");
         while(curr != NULL) {
-            printf("Á¦ ¸ñ : %s | Àú ÀÚ : %s | ÃâÆÇ»ç : %s | °¡ °İ : %d | ´ë¿© ¿©ºÎ : %s\n\n",
-                    curr->title, curr->author, curr->publisher, curr->price, curr->rent_available ? "´ë¿©Áß" : "´ë¿© °¡´É");
+            printf("ì œ ëª© : %s | ì € ì : %s | ì¶œíŒì‚¬ : %s | ê°€ ê²© : %d | ëŒ€ì—¬ ì—¬ë¶€ : %s\n\n",
+                    curr->title, curr->author, curr->publisher, curr->price, curr->rent_available ? "ëŒ€ì—¬ì¤‘" : "ëŒ€ì—¬ ê°€ëŠ¥");
             curr = curr->next;
         }
     }
@@ -129,7 +129,7 @@ void deleteMenu(book* head)
 {
     char title[30];
     printf("\n");
-    printf("»èÁ¦ÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ì‚­ì œí•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
 
     book* curr = head->next;
@@ -137,66 +137,66 @@ void deleteMenu(book* head)
         if(strcmp(curr->title, title) == 0) {
             head->next = curr->next;
             free(curr);
-            printf("µµ¼­°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n\n");
+            printf("ë„ì„œê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
             return;
         }
         curr = curr->next;
     }
-    printf("»èÁ¦ÇÒ µµ¼­¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù!!\n\n");
+    printf("ì‚­ì œí•  ë„ì„œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!!\n\n");
 }
 
 void searchMenu(book* head)
 {
     char title[30];
     printf("\n");
-    printf("°Ë»öÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ê²€ìƒ‰í•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
 
     book*curr = head->next;
     while (curr != NULL) {
         if (strcmp(curr->title, title) == 0) {
-            printf("%sÀÌ(°¡) Á¸ÀçÇÕ´Ï´Ù.\n\n", title);
+            printf("%sì´(ê°€) ì¡´ì¬í•©ë‹ˆë‹¤.\n\n", title);
             rentMenu(curr);
             return;
         }
         curr = curr->next;
     }
-    printf("µµ¼­°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n\n");
+    printf("ë„ì„œê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n\n");
 }
 
 void rentMenu()
 {
     char title[30];
     printf("\n");
-    printf("´ë¿©ÇÒ µµ¼­ Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+    printf("ëŒ€ì—¬í•  ë„ì„œ ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
     scanf("%s", title);
 
     book*curr = head->next;
     while (curr != NULL) {
         if (strcmp(curr->title, title) == 0) {
             if(curr->rent_available) {
-                printf("ÀÌ Ã¥Àº ÀÌ¹Ì ´ë¿© ÁßÀÔ´Ï´Ù.\n\n");
+                printf("ì´ ì±…ì€ ì´ë¯¸ ëŒ€ì—¬ ì¤‘ì…ë‹ˆë‹¤.\n\n");
             }
             else {
                 char answer;
-                printf("ÀÌ Ã¥À» ´ë¿©ÇÏ½Ã°Ú½À´Ï±î? (Y/N) : ");
+                printf("ì´ ì±…ì„ ëŒ€ì—¬í•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y/N) : ");
                 getchar();
                 scanf("%c", &answer);
 
                 if(answer == 'Y' || answer == 'y') {
-                printf("µµ¼­°¡ ´ë¿©µÇ¾ú½À´Ï´Ù!!\n\n");
+                printf("ë„ì„œê°€ ëŒ€ì—¬ë˜ì—ˆìŠµë‹ˆë‹¤!!\n\n");
                 curr->rent_available = 1;
                 }
                 else if(answer == 'N' || answer == 'n') {
-                    printf("´ë¿©°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.\n\n");
+                    printf("ëŒ€ì—¬ê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.\n\n");
                 }
                 else {
-                    printf("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù. ´ë¿©°¡ Ãë¼ÒµË´Ï´Ù.\n\n");
+                    printf("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤. ëŒ€ì—¬ê°€ ì·¨ì†Œë©ë‹ˆë‹¤.\n\n");
                 }
             }
             return;
         }
         curr = curr->next;
     }
-    printf("µµ¼­°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.\n\n");
+    printf("ë„ì„œê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\n\n");
 }
