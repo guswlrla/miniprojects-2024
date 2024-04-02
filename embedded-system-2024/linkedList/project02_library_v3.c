@@ -25,7 +25,9 @@ typedef struct BOOK {
     int price;
     struct BOOK* next;
 }book;
- 
+
+// 전역변수 없애기
+
 void post_addMenu(book*);
 void printMenu(book*);
 void deleteMenu(book*);
