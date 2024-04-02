@@ -1,0 +1,11 @@
+app : book.o main.o
+        gcc -o app book.o main.o
+    
+book.o : book.c
+    	gcc -c -o book.o book.c
+    
+main.o : main.c
+        gcc -c -o main.o main.c
+    
+clean:
+        rm *.o app
