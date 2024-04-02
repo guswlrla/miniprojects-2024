@@ -1,30 +1,30 @@
 /*
-  1. ºÎ¸ğ Å¬·¡½º
+  1. ë¶€ëª¨ í´ë˜ìŠ¤
   class Product : id, price, producer
   
-  2. ÀÚ½Ä Å¬·¡½º
+  2. ìì‹ í´ë˜ìŠ¤
   class Book : ISBN, author, title // 978-89-001-0001-1
   class Handphone : model, RAM
   class Computer : model, cpu, RAM
 
-  3. °´Ã¼Æ÷ÀÎÅÍ ¹è¿­ »ç¿ë : product[100]
+  3. ê°ì²´í¬ì¸í„° ë°°ì—´ ì‚¬ìš© : product[100]
 
-  4. string Å¬·¡½º »ç¿ë°¡´É
+  4. string í´ë˜ìŠ¤ ì‚¬ìš©ê°€ëŠ¥
 
-  5. ¸ŞÀÎÈ­¸é
-  ------»óÇ°°ü¸® ÇÁ·Î±×·¥------
-  1) »óÇ°Ãß°¡ 2) »óÇ°Ãâ·Â 3) »óÇ°°Ë»ö 0) Á¾·á >
+  5. ë©”ì¸í™”ë©´
+  ------ìƒí’ˆê´€ë¦¬ í”„ë¡œê·¸ë¨------
+  1) ìƒí’ˆì¶”ê°€ 2) ìƒí’ˆì¶œë ¥ 3) ìƒí’ˆê²€ìƒ‰ 0) ì¢…ë£Œ >
 
-  6. 1) ¶Ç´Â 2) ¶Ç´Â 3)À» ¼±ÅÃÇÑ °æ¿ì,
-	1) Ã¥ 2) ÇÚµåÆù 3) ÄÄÇ»ÅÍ ¼±ÅÃ¸ñ·ÏÀ» ¶ç¿ö ÇØ´ç »óÇ°À» ¼±ÅÃÇÑ ÈÄ¿¡ Ãß°¡, Ãâ·Â, ¶Ç´Â °Ë»ö ½ÇÇàµÈ´Ù.
+  6. 1) ë˜ëŠ” 2) ë˜ëŠ” 3)ì„ ì„ íƒí•œ ê²½ìš°,
+	1) ì±… 2) í•¸ë“œí° 3) ì»´í“¨í„° ì„ íƒëª©ë¡ì„ ë„ì›Œ í•´ë‹¹ ìƒí’ˆì„ ì„ íƒí•œ í›„ì— ì¶”ê°€, ì¶œë ¥, ë˜ëŠ” ê²€ìƒ‰ ì‹¤í–‰ëœë‹¤.
 
-  7. ÆÄÀÏºĞÇÒ(³ªÁß¿¡ ÇØµµ µÊ)
+  7. íŒŒì¼ë¶„í• (ë‚˜ì¤‘ì— í•´ë„ ë¨)
 */
 
 /*
 File:Product_Manager.c
 Created: 2024-03-06
-Author: ±èÇöÁö
+Author: ê¹€í˜„ì§€
 */
 #include <iostream>
 #include <string>
@@ -104,9 +104,9 @@ int main() {
 
     int choice;
     while (true) {
-        cout << "»óÇ°°ü¸® ÇÁ·Î±×·¥" << endl;
-        cout << "1. »óÇ°Ãß°¡ 2. »óÇ°Ãâ·Â 3. »óÇ°°Ë»ö 0. Á¾·á" << endl;
-        cout << "¸Ş´º ¼±ÅÃ: ";
+        cout << "ìƒí’ˆê´€ë¦¬ í”„ë¡œê·¸ë¨" << endl;
+        cout << "1. ìƒí’ˆì¶”ê°€ 2. ìƒí’ˆì¶œë ¥ 3. ìƒí’ˆê²€ìƒ‰ 0. ì¢…ë£Œ" << endl;
+        cout << "ë©”ë‰´ ì„ íƒ: ";
         cin >> choice;
 
         switch (choice) {
@@ -125,7 +125,7 @@ int main() {
             searchProduct(products);
             break;
         default:
-            cout << "Àß¸øµÈ ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇØÁÖ¼¼¿ä." << endl;
+            cout << "ì˜ëª»ëœ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•´ì£¼ì„¸ìš”." << endl;
             break;
         }
     }
@@ -135,8 +135,8 @@ int main() {
 
 void addProduct(vector<Product*>& products) {
     int productType;
-    cout << "1. Ã¥ 2. ÇÚµåÆù 3. ÄÄÇ»ÅÍ" << endl;
-    cout << "»óÇ° Á¾·ù ¼±ÅÃ: ";
+    cout << "1. ì±… 2. í•¸ë“œí° 3. ì»´í“¨í„°" << endl;
+    cout << "ìƒí’ˆ ì¢…ë¥˜ ì„ íƒ: ";
     cin >> productType;
 
     int id;
@@ -182,16 +182,16 @@ void addProduct(vector<Product*>& products) {
 }
 
 void printProducts(const vector<Product*>& products) {
-    cout << "»óÇ° Ãâ·Â" << endl;
+    cout << "ìƒí’ˆ ì¶œë ¥" << endl;
     for (const auto& product : products) {
         product->printInfo();
     }
 }
 
 void searchProduct(const vector<Product*>& products) {
-    cout << "»óÇ° °Ë»ö" << endl;
+    cout << "ìƒí’ˆ ê²€ìƒ‰" << endl;
     int searchId;
-    cout << "°Ë»öÇÒ »óÇ°ÀÇ ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ";
+    cout << "ê²€ìƒ‰í•  ìƒí’ˆì˜ IDë¥¼ ì…ë ¥í•˜ì„¸ìš”: ";
     cin >> searchId;
 
 
@@ -205,7 +205,7 @@ void searchProduct(const vector<Product*>& products) {
     }
 
     if (!found) {
-        cout << "ÇØ´ç IDÀÇ »óÇ°À» Ã£À» ¼ö ¾ø½À´Ï´Ù." << endl;
+        cout << "í•´ë‹¹ IDì˜ ìƒí’ˆì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤." << endl;
     }
 }
 
