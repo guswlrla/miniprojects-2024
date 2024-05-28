@@ -115,7 +115,22 @@ IoT 개발자 미니프로젝트 리포지토리
 
 ## 9일차
 - 스마트홈 연동 클래스 미니프로젝트
-    - [ ] WPF MQTT데이터 DB로 저장
-    - [ ] MQTT데이터 실시간 모니터링
+    - [x] WPF MQTT데이터 DB로 저장
+    - [x] MQTT데이터 실시간 모니터링
     - [ ] MQRR로 RPi 제어(LED제어)
     - [ ] WPF MQTT데이터 히스토리 확인
+
+## 10일차
+- 스마트홈 연동 클래스 미니프로젝트 마무리
+    - [x] WPF MQTT데이터 DB로 저장
+    - [x] MQTT데이터 실시간 모니터링
+    - [x] MQRR로 RPi 제어(LED제어)
+    - [x] WPF MQTT데이터 히스토리 확인
+        - LiveChart2는 차후에 다시, 현재는 OxyPlot 차트 대체
+    - 실행결과
+
+        ![스마트홈1](https://github.com/guswlrla/miniprojects-2024/blob/main/imgs/mp002.png?raw=true)
+
+        ![스마트홈2](https://github.com/guswlrla/miniprojects-2024/blob/main/imgs/mp003.png?raw=true)
+
+        ![스마트홈3](https://github.com/guswlrla/miniprojects-2024/blob/main/imgs/mp004.png?raw=true)
