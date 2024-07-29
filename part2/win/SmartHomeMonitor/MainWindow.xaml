@@ -29,7 +29,7 @@
             <Menu IsMainMenu="True" Style="{StaticResource MahApps.Styles.Menu}">
                 <MenuItem Header="파일">
                     <MenuItem.Icon>
-                        <iconPacks:PackIconJamIcons Kind="FileF" />
+                        <iconPacks:PackIconCoolicons Kind="FileBlankOutline" />
                     </MenuItem.Icon>
 
                     <MenuItem x:Name="MnuStartSubscribe" Header="시작" Click="MnuStartSubscribe_Click">
@@ -51,7 +51,7 @@
                 </MenuItem>
                 <MenuItem Header="화면">
                     <MenuItem.Icon>
-                        <iconPacks:PackIconJamIcons Kind="ScreenF" />
+                        <iconPacks:PackIconJamIcons Kind="Screen" />
                     </MenuItem.Icon>
                     
                     <MenuItem x:Name="MnuDataBaseMon" Header="DB모니터링" Click="MnuDataBaseMon_Click">
@@ -72,7 +72,8 @@
                 </MenuItem>
                 <MenuItem Header="도움말">
                     <MenuItem.Icon>
-                        <iconPacks:PackIconMaterial Kind="HelpBox" />
+                        <iconPacks:PackIconBoxIcons Kind="RegularHelpCircle" />
+                        <!--<iconPacks:PackIconMaterial Kind="CommentQuestionOutline" />-->
                     </MenuItem.Icon>
 
                     <MenuItem x:Name="MnuAbout" Header="이 프로그램" Click="MnuAbout_Click">
@@ -86,14 +87,15 @@
             <ToolBarTray>
                 <ToolBar Style="{StaticResource MahApps.Styles.ToolBar}">
                     <Button x:Name="BtnStartSubscribe" ToolTip="구독 시작" Click="MnuStartSubscribe_Click">
-                        <iconPacks:PackIconJamIcons Kind="PlayCircleF" />
+                        <iconPacks:PackIconJamIcons Kind="PlayCircle" />
                     </Button>
                     <!--<Button x:Name="BtnStopSubscribe" ToolTip="구독 중지">
                         <iconPacks:PackIconBootstrapIcons Kind="PauseCircleFill" />
                     </Button>-->
                     <Separator />
                     <Button x:Name="BtnExitProgram" ToolTip="프로그램 끝내기" Click="BtnExitProgram_Click">
-                        <iconPacks:PackIconForkAwesome Kind="SignOut" />
+                        <!--<iconPacks:PackIconUnicons Kind="Signout" />-->
+                        <iconPacks:PackIconEvaIcons Kind="LogOut" />
                     </Button>
                 </ToolBar>
             </ToolBarTray>

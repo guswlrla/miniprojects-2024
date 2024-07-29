@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <iconPacks:PackIconMaterial Kind="ChartMultiline" Margin="10" Width="24" Height="24"
+            <iconPacks:PackIconCoolicons Kind="LineChartUp" Margin="10" Width="24" Height="24"
                                         VerticalAlignment="Center"/>
             <Label Content="Visualization" Style="{StaticResource MahApps.Styles.Label}"
                    FontSize="25" FontWeight="Bold" VerticalAlignment="Center" />

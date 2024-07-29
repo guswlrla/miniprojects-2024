@@ -186,12 +186,11 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <iconPacks:PackIconMaterial Kind="GaugeLow" Margin="10" Width="24" Height="24"
-                                        VerticalAlignment="Center"/>
+            <iconPacks:PackIconEntypo  Kind="Gauge" Margin="10" Width="24" Height="24" VerticalAlignment="Center"/>
             <Label Content="RealTime Monitoring"
-                   FontSize="25" FontWeight="Bold" VerticalAlignment="Center" />
+                    FontSize="25" FontWeight="Bold" VerticalAlignment="Center" />
             <Label x:Name="LblSensingDt" Content="2023-05-10 10:34:45" FontSize="14" 
-                   VerticalAlignment="Center" Margin="20,0" />
+                    VerticalAlignment="Center" Margin="20,0" />
 
             <Button x:Name="BtnWarning" Style="{StaticResource ResourceKey=WarningButton}" Click="BtnWarning_Click"/>
             <Button x:Name="BtnNormal" Style="{StaticResource ResourceKey=NormalButton}" Click="BtnNormal_Click"/>
