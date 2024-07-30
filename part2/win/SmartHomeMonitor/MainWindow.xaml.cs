@@ -78,6 +78,5 @@ namespace SmartHomeMonitoringApp
         private void MnuAbout_Click(object sender, RoutedEventArgs e)
         {
         }
-
     }
 }
