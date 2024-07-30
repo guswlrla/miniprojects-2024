@@ -13,7 +13,7 @@
     Loaded="MetroWindow_Loaded" Closing="MetroWindow_Closing">
     <mah:MetroWindow.IconTemplate>
         <DataTemplate>
-            <iconPacks:PackIconSimpleIcons Kind="HomeAssistant" Width="24"
+            <iconPacks:PackIconMaterial Kind="HomeAutomation" Width="24"
                                            Margin="5,7,0,0" Foreground="White" />
         </DataTemplate>
     </mah:MetroWindow.IconTemplate>
